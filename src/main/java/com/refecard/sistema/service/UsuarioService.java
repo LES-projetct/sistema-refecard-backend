@@ -11,7 +11,7 @@ import com.refecard.sistema.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 
 @Service
-//@RequiredArgsConstructor // Gera um construtor com argumentos para todos os campos finais
+//@RequiredArgsConstructor // Gera um construtor com argumentos para todos os campos
 public class UsuarioService {
 
     @Autowired

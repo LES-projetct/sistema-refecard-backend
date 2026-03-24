@@ -21,9 +21,8 @@ public class ContaPagar {
 
     private LocalDate dataPagamento;
 
-    // RELAÇÃO N-1 COM FORNECEDOR
     @ManyToOne
     @JoinColumn(name = "fornecedor_id")
-    @JsonBackReference
+    @JsonBackReference("fornecedor-contaPagar")
     private Fornecedor fornecedor;
 }

@@ -19,9 +19,8 @@ public class ControleAcesso {
 
     private LocalDateTime dataHoraSaida;
 
-    // RELAÇÃO N-1 COM CARTAO (muitos acessos para um cartão)
     @ManyToOne
     @JoinColumn(name = "cartao_id")
-    @JsonBackReference
+    @JsonBackReference("cartao-controleAcesso")
     private Cartao cartao;
 }

@@ -19,9 +19,8 @@ public class RecargaSaldo {
 
     private LocalDateTime dataRecarga;
 
-    // RELAÇÃO N-1 COM CARTAO (várias recargas para um cartão)
     @ManyToOne
     @JoinColumn(name = "cartao_id")
-    @JsonBackReference
+    @JsonBackReference("cartao-recargaSaldo")
     private Cartao cartao;
 }

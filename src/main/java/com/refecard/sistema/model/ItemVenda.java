@@ -17,15 +17,13 @@ public class ItemVenda {
 
     private Double valorCobrado;
 
-    // RELAÇÃO N-1 COM PRODUTO (vários itens para um produto)
     @ManyToOne
     @JoinColumn(name = "produto_id")
-    @JsonBackReference
+    @JsonBackReference("produto-itemVenda")
     private Produto produto;
 
-    // RELAÇÃO N-1 COM VENDA (vários itens para uma venda)
     @ManyToOne
     @JoinColumn(name = "venda_id")
-    @JsonBackReference
+    @JsonBackReference("venda-itemVenda")
     private Venda venda;
 }

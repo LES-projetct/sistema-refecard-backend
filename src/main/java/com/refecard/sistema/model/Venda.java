@@ -28,17 +28,16 @@ public class Venda {
 
     private Double saldoAtualizado;
 
-    // RELAÇÃO N-1 COM CARTAO (muitas vendas para um cartão)
     @ManyToOne
     @JoinColumn(name = "cartao_id")
-    @JsonBackReference
+    @JsonBackReference("cartao-venda")
     private Cartao cartao;
 
     @OneToOne(mappedBy = "venda", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("venda-contaReceber")
     private ContaReceber contaReceber;
 
     @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("venda-itemVenda")
     private Set<ItemVenda> itens = new HashSet<>();
 }

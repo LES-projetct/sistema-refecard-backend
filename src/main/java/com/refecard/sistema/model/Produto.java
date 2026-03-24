@@ -28,17 +28,16 @@ public class Produto {
 
     private Double valorVenda;
 
-    // RELAÇÃO 1-N COM HISTORICO PRECO QUILO
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("produto-historicoPrecoQuilo")
     private Set<HistoricoPrecoQuilo> historicoPrecos = new HashSet<>();
 
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("produto-itemVenda")
     private Set<ItemVenda> itensVenda = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "fornecedor_id")
-    @JsonBackReference
+    @JsonBackReference("fornecedor-produto")
     private Fornecedor fornecedor;
 }

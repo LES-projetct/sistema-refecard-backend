@@ -19,9 +19,8 @@ public class HistoricoPrecoQuilo {
 
     private LocalDateTime dataAtualizacao;
 
-    // RELAÇÃO N-1 COM PRODUTO
     @ManyToOne
     @JoinColumn(name = "produto_id")
-    @JsonBackReference
+    @JsonBackReference("produto-historicoPrecoQuilo")
     private Produto produto;
 }

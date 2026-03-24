@@ -30,25 +30,24 @@ public class Cartao {
 
     private Boolean acessoBloqueado;
 
-    // RELAÇÃO 1-1 COM USUARIO
     @OneToOne
     @JoinColumn(name = "usuario_id")
-    @JsonBackReference
+    @JsonBackReference("usuario-cartao")
     private Usuario usuario;
 
     @OneToMany(mappedBy = "cartao", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("cartao-controleAcesso")
     private Set<ControleAcesso> acessos = new HashSet<>();
 
     @OneToMany(mappedBy = "cartao", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("cartao-venda")
     private Set<Venda> vendas = new HashSet<>();
 
     @OneToMany(mappedBy = "cartao", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("cartao-recargaSaldo")
     private Set<RecargaSaldo> recargas = new HashSet<>();
 
     @OneToMany(mappedBy = "cartao", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("cartao-contaReceber")
     private Set<ContaReceber> contasReceber = new HashSet<>();
 }

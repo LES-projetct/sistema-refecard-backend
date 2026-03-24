@@ -21,12 +21,11 @@ public class Fornecedor {
     @Column(unique = true, nullable = false)
     private String cnpj;
 
-    // RELAÇÃO 1-N COM PRODUTO
     @OneToMany(mappedBy = "fornecedor", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("fornecedor-produto")
     private Set<Produto> produtos = new HashSet<>();
 
     @OneToMany(mappedBy = "fornecedor", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("fornecedor-contaPagar")
     private Set<ContaPagar> contasPagar = new HashSet<>();
 }

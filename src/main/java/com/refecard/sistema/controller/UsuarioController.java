@@ -13,7 +13,6 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    // Endpoint de teste
     @PostMapping("/teste")
     public Usuario criarUsuarioTeste() {
         return usuarioService.criarUsuarioTeste();

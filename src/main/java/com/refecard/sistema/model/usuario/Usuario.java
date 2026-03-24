@@ -36,10 +36,10 @@ public class Usuario {
     private LocalDate dataNascimento;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
+    @JsonManagedReference("usuario-role")
     private Set<UsuarioRole> roles = new HashSet<>();
 
     @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
-    @JsonManagedReference
+    @JsonManagedReference("usuario-cartao")
     private Cartao cartao;
 }

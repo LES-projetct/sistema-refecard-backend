@@ -24,6 +24,6 @@ public class UsuarioRole {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
-    @JsonBackReference
+    @JsonBackReference("usuario-role")
     private Usuario usuario;
 }

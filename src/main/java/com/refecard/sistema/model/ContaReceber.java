@@ -21,15 +21,13 @@ public class ContaReceber {
 
     private String statusPagamento;
 
-    // RELAÇÃO N-1 COM CARTAO (várias contas para um cartão)
     @ManyToOne
     @JoinColumn(name = "cartao_id")
-    @JsonBackReference
+    @JsonBackReference("cartao-contaReceber")
     private Cartao cartao;
 
-    // RELAÇÃO 1-1 COM VENDA (uma venda tem uma conta a receber)
     @OneToOne
     @JoinColumn(name = "venda_id")
-    @JsonBackReference
+    @JsonBackReference("venda-contaReceber")
     private Venda venda;
 }
