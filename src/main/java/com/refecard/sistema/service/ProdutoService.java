@@ -22,6 +22,10 @@ public class ProdutoService {
         return repository.findAll();
     }
 
+    public Produto buscarPorId(Long id) {
+        return repository.findById(id).orElse(null);
+    }
+
     public void deletar(Long id) {
         repository.deleteById(id);
     }

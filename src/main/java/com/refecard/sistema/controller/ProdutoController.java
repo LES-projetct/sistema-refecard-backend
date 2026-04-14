@@ -25,6 +25,11 @@ public class ProdutoController {
         return service.listar();
     }
 
+    @GetMapping("/{id}")
+    public Produto buscarPorId(@PathVariable Long id) {
+        return service.buscarPorId(id);
+    }
+
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
         service.deletar(id);

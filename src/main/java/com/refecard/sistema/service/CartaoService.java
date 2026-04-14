@@ -22,6 +22,10 @@ public class CartaoService {
         return repository.findAll();
     }
 
+    public Cartao buscarPorCodigo(String codigo) {
+        return repository.findByCodigoCartaoRfid(codigo).orElse(null);
+    }
+
     public void deletar(Long id) {
         repository.deleteById(id);
     }

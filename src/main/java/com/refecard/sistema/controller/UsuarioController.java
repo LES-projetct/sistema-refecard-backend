@@ -27,6 +27,11 @@ public class UsuarioController {
         return service.listar();
     }
 
+    @GetMapping("/cpf/{cpf}")
+    public Usuario buscarPorCpf(@PathVariable String cpf) {
+        return service.buscarPorCpf(cpf);
+    }
+
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
         service.deletar(id);

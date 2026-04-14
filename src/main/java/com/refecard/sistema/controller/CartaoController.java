@@ -25,6 +25,11 @@ public class CartaoController {
         return service.listar();
     }
 
+    @GetMapping("/codigo/{codigo}")
+    public Cartao buscarPorCodigo(@PathVariable String codigo) {
+        return service.buscarPorCodigo(codigo);
+    }
+
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
         service.deletar(id);

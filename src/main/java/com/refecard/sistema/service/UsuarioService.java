@@ -22,6 +22,10 @@ public class UsuarioService {
         return repository.findAll();
     }
 
+    public Usuario buscarPorCpf(String cpf) {
+        return repository.findByCpf(cpf).orElse(null);
+    }
+
     public void deletar(Long id) {
         repository.deleteById(id);
     }
